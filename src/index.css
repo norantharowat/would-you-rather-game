@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Press+Start+2P&family=Rubik:wght@500&display=swap');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +7,93 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+
+.nav-left{
+  margin-left: auto;
+}
+.nav li:first-child {
+  margin-left: 3vw;
+}
+.nav li:last-child {
+  padding-right: 5vw;
+}
+
+.nav li:nth-child(-n+3){
+  background-color: rgb(165, 220, 255);
+  /* background-color: rgb(9, 214, 204); */
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+  border-bottom-right-radius: 5%;
+  border-bottom-left-radius: 5%;
+  font-size: 1.2em;
+  border: 4px ridge rgb(101, 90, 255);
+  /* border: 4px ridge rgb(160, 255, 255); */
+  padding: 0.8em;
+  letter-spacing: 2px;
+  margin-left: 5em;
+  color: rgb(2, 14, 117);
+  /* color: rgb(255, 255, 255); */
+  font-family: 'Permanent Marker', cursive;
+  
+} 
+
+.nav li:nth-child(-n+3):hover{
+  padding: 0.5em;
+  margin-bottom: 5px;
+  box-shadow:5px 5px rgb(190, 247, 247);
+  border: 5px ridge rgb(101, 90, 255);
+  cursor: pointer;
+   
+  
+} 
+
+.nav li:nth-child(4), .nav li:last-child{
+  color:rgb(165, 220, 255);
+  font-size: 1.2em;
+  margin-right: 15px;
+  margin-top: 10px;
+  font-family: 'Rubik', sans-serif; 
+  letter-spacing: 1px; 
+} 
+/* .nav li:nth-child(5){
+  background-color: rgb(19, 231, 220);
+  
+}  */
+.nav li:last-child{
+color:white  ;
+
+} 
+.nav li:last-child:hover{
+  cursor: pointer;
+} 
+
+/* ul {
+  padding-left: 0;
+} */
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.avatar {
+  height: 60px;
+  border-radius: 30px;
+  margin-top: -9px;
+  margin-right: 5px;
 }
