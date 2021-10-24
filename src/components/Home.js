@@ -4,8 +4,8 @@ import QuestionCard from './QuestionCard'
 class Home extends Component {
     render() {
         return (
-            <div>
-               <table>
+            <div >
+               <table >
                    {/* <thead> */}
                     <tr>
                         <th>Unanswered Questions </th>
