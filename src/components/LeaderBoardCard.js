@@ -21,7 +21,7 @@ class LeaderBoardCard extends Component {
                         </div>
                         {/* <h2>Would you rather </h2> */}
                         <h3 style={{textAlign:'left'}} >Answered questions:   {5}</h3>
-                        <h3 style={{textAlign:'left'}}>Unanswered questions:  {10}</h3>
+                        <h3 style={{textAlign:'left'}}>Created questions:  {10}</h3>
                         {/* <button className = 'b-pool'>View Poll</button> */}
                     </div> 
 

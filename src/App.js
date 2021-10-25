@@ -8,6 +8,7 @@ import NewQuestion from './components/NewQuestion';
 import {BrowserRouter as Router , Route} from 'react-router-dom'
 import { handleReceiveUsers } from './actions/users';
 import { handleReceiveQuestions } from './actions/questions';
+import ViewPoll from './components/ViewPoll'
 import {connect } from 'react-redux'
 class App extends Component {
   componentDidMount(){
@@ -26,6 +27,7 @@ class App extends Component {
         <NavBar/>
         <Route path='/' exact component ={Home} />
         <Route path='/leaderboard'  component ={LeaderBoard} />
+        <Route path = '/question/:id'  component = {ViewPoll}/>
         <Route path='/add'  component ={NewQuestion} />
         </div>
         : 

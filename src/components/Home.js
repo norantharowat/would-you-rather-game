@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import QuestionCard from './QuestionCard'
+import { connect } from 'react-redux'
 
 class Home extends Component {
     state={
-        activeTab: ''
+        activeTab: '1'
     }
      Activate = (tab)=>{
         if(tab === '1'){
@@ -27,23 +28,59 @@ class Home extends Component {
                    </thead>
 
                    <tbody>     
-                        <tr>
+
+
+                       { (this.state.activeTab === '1') ? 
+                        
+                        this.props.UnansweredIds.map((id)=> (
+                            <tr key={id}>
+                             <td colSpan="2"> <QuestionCard id ={id}/> </td>
+                            
+                            </tr>
+
+                        ))
+                        
+                        :
+                        this.props.answeredIds.map((id)=> (
+                            <tr key={id}>
+                             <td colSpan="2"> <QuestionCard id ={id}/> </td>
+                            
+                            </tr>
+
+                        ))
+
+                    }
+                        {/* <tr>
                             <td colSpan="2"> <QuestionCard/> </td>
+                            
+                        </tr> */}
+                        {/* <tr>
+                            <td colSpan="2"> <QuestionCard/> </td>
+                            {console.log(this.props.answeredIds)}
+                            {console.log(this.props.Unanswered)}
                             
                         </tr>
                         <tr>
                             <td colSpan="2"> <QuestionCard/> </td>
                             
-                        </tr>
-                        <tr>
-                            <td colSpan="2"> <QuestionCard/> </td>
-                            
-                        </tr>
+                        </tr> */}
                    </tbody>     
                </table>
             </div>
         )
     }
 }
+function mapStateToProps({ users , authedUser, questions }){
+    const answered = Object.keys(Object.values(users).filter((user) => user.id === authedUser)[0].answers)
+    const Unanswered = Object.keys(questions).filter((question) => (answered.indexOf(question) === -1) )
 
-export default Home
+    console.log(Unanswered)
+    return{
+        answeredIds: answered.sort((a , b) => questions[b].timestamp - questions[a].timestamp ) ,
+        UnansweredIds : Unanswered.sort((a , b) => questions[b].timestamp - questions[a].timestamp ),
+       
+         
+    }
+}
+
+export default connect(mapStateToProps)(Home)
