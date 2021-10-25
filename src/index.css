@@ -204,7 +204,7 @@ table tr th:first-child
   border-right: 5px solid rgb(0, 6, 88);
  
 }
-table tr th:hover
+table tr th:hover, .tactive
  {
   background-color: transparent;
   cursor: pointer;

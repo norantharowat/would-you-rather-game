@@ -1,7 +1,24 @@
 import React, { Component } from 'react'
-
+import { connect } from 'react-redux'
+import { setAuthedUser } from '../actions/authedUser'
 class SignIn extends Component {
+    state = {
+        userId : ''
+    }
+
+    handleChange = (e)=>{
+        const userId = e.target.value
+        // console.log(this.state)
+        this.setState(()=>({userId}))
+    }
+
+    handleSignin(){
+        const {userId} = this.state
+        // console.log(this.state)
+        this.props.dispatch(setAuthedUser(userId))
+    }
     render() {
+        
         return (
             <div style={{marginTop:70}} className = 'question-card'>
                 <div className = 'name' style={{textAlign: 'center'}}>
@@ -20,14 +37,19 @@ class SignIn extends Component {
                         {/* <h3>...a...</h3> */}
                         <div>
 
-                            <select  className='users-list'>
-                                <option value="" disabled selected hidden>Select User</option>
-                                <option value="user 1">user 1</option>
-                                <option value="user 2">user 2</option>
+                            <select onChange={this.handleChange} defaultValue='Select User' className='users-list'>
+                                <option   disabled value='Select User' hidden>Select User</option>
+                                
+                                
+                                {this.props.users.map((user)=> (
+
+                                    <option key={user.id} value={user.id}>{user.name}</option>
+
+                                ))}
                             </select>
                         </div>
 
-                        <button className = 'b-pool'>Sign in</button>
+                        <button onClick={() => this.handleSignin()} className = 'b-pool'>Sign in</button>
                     </div> 
                 </div>
             </div>
@@ -35,4 +57,11 @@ class SignIn extends Component {
     }
 }
 
-export default SignIn
+function mapStateToProps({ users }){
+    return{
+
+        users : Object.values( users)
+    }
+}
+
+export default connect(mapStateToProps)(SignIn)
