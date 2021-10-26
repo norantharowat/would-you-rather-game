@@ -170,6 +170,7 @@ li {
   /* padding: 3em; */
   width: 14vw;
   height: 6vh;
+  /* border: 2px solid rgb(0, 6, 88); */
   border-radius: 50px;
   border-color: rgb(0, 6, 88);
   font-size: 1.1em;
@@ -270,7 +271,7 @@ table tr:last-child td:last-child {
 
 .progressbar>div {
   background-color: rgb(255, 255, 255);
-  width: 50%;
+  /* width: 50%; */
   /* Adjust with JavaScript */
   height: 20px;
   border-radius: 7px;
@@ -278,7 +279,7 @@ table tr:last-child td:last-child {
 }
 
 .answer{
-  background-color: rgba(18, 96, 221, 0.336);
+  /* background-color: rgba(18, 96, 221, 0.336); */
   height: fit-content;
   width : 22vw;
   padding: 20px;
@@ -288,7 +289,7 @@ table tr:last-child td:last-child {
 }
 .answer:last-child{
   margin-top: 10px;
-  background-color: rgba(255, 255, 255, 0.287);
+  /* background-color: rgba(255, 255, 255, 0.287); */
 }
 .answer p:first-child{
   font-family: 'Rubik', sans-serif; 
@@ -331,6 +332,11 @@ table tr:last-child td:last-child {
   height: 60px;
   width: 4vw;
   border-radius: 50px;
+}
+
+label{
+  font-size: 1.1em;
+  font-family: 'Rubik', sans-serif; 
 }
 
 .rank{

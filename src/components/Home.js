@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import QuestionCard from './QuestionCard'
 import { connect } from 'react-redux'
+// import { Link } from 'react-router-dom'
 
 class Home extends Component {
     state={
@@ -34,7 +35,11 @@ class Home extends Component {
                         
                         this.props.UnansweredIds.map((id)=> (
                             <tr key={id}>
-                             <td colSpan="2"> <QuestionCard id ={id}/> </td>
+                             <td colSpan="2">
+                                {/* <Link to = {`/question/${id}`}> */}
+                                    <QuestionCard id ={id} goTo={`/question/${id}`}/>
+                                {/* </Link> */}
+                            </td>
                             
                             </tr>
 
@@ -43,7 +48,7 @@ class Home extends Component {
                         :
                         this.props.answeredIds.map((id)=> (
                             <tr key={id}>
-                             <td colSpan="2"> <QuestionCard id ={id}/> </td>
+                             <td colSpan="2"> <QuestionCard id ={id} goTo={`/question/${id}`}/> </td>
                             
                             </tr>
 

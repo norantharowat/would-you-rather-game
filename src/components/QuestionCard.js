@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {Link} from 'react-router-dom'
 class QuestionCard extends Component {
     render() {
-        const {question , authorAvatar} = this.props
+        const {question , authorAvatar, goTo} = this.props
         return (
             <div className = 'question-card'>
                 <div className = 'name'>
@@ -19,7 +20,8 @@ class QuestionCard extends Component {
                     <div>
                         <h2>Would you rather </h2>
                         <h3>...{question.optionOne.text}...</h3>
-                        <button className = 'b-pool'>View Poll</button>
+                       
+                        <Link to={goTo}> <button  className = 'b-pool'> View Poll  </button> </Link>
                     </div> 
                 </div>
             </div>
@@ -27,7 +29,7 @@ class QuestionCard extends Component {
     }
 }
 
-function mapStateToProps({questions , users} , {id}){
+function mapStateToProps({questions , users} , {id, goTo}){
     const question = questions[id]
     return{
         question : question,
