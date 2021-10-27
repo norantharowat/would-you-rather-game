@@ -1,8 +1,12 @@
 import { _getQuestions } from "../utils/_DATA"
 import {_saveQuestionAnswer} from '../utils/_DATA'
+import {_saveQuestion} from '../utils/_DATA'
 import { addUserAnswer } from "./users"
+import { addUserQuestion } from "./users"
+
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ANSWER_QUESTION = 'ANSWER_QUESTION'
+export const ADD_QUESTION = 'ADD_QUESTION'
 
 export function receiveQuestions(questions){
    return {
@@ -52,5 +56,32 @@ export function handleAnswerQuestion(info){
 
 
         
+    }
+}
+
+export function addQuestion(question){
+    return{
+        type: ADD_QUESTION,
+        question,
+    }
+}
+
+export function handleAddQuestion(optionOneText , optionTwoText){
+    return (dispatch , getState)=>{
+        const {authedUser} = getState()
+        
+        return _saveQuestion(
+            { optionOneText,
+              optionTwoText,
+              author :authedUser,
+            }
+            ).then((question)=> 
+            
+            {
+
+            dispatch(addQuestion(question))
+            dispatch(addUserQuestion({authedUser , qid: question.id}))
+
+            })
     }
 }

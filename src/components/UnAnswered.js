@@ -24,7 +24,7 @@ class UnAnswered extends Component {
                     qid: question.id,
                     answer:  this.state.selectedOption,
                 }))
-                // console.log(this.state.selectedOption)
+               
                 this.props.history.push(`/`)
             } else{
                 

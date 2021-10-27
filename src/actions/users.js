@@ -1,7 +1,8 @@
 import {_getUsers }from '../utils/_DATA'
 
-export const ADD_USER_ANSWER = 'ADD_USER_ANSWER'
 export const RECEIVE_USERS = 'RECEIVE_USERS'
+export const ADD_USER_ANSWER = 'ADD_USER_ANSWER'
+export const ADD_USER_QUESTION = 'ADD_USER_QUESTION'
 
 export function receiveUsers(users){
    return {
@@ -11,6 +12,16 @@ export function receiveUsers(users){
    }
    
 }
+
+export function handleReceiveUsers() {
+    return (dispatch) => {
+        
+        
+        return _getUsers().then((users) => dispatch(receiveUsers(users)))
+        .catch(()=> {console.log("Failed to receive users")})
+    }
+}
+
 export function addUserAnswer({authedUser , qid , answer}){
    return {
 
@@ -22,11 +33,13 @@ export function addUserAnswer({authedUser , qid , answer}){
    
 }
 
-export function handleReceiveUsers() {
-    return (dispatch) => {
-        
+export function addUserQuestion({authedUser , qid }){
+   return {
 
-        return _getUsers().then((users) => dispatch(receiveUsers(users)))
-                .catch(()=> {console.log("Failed to receive users")})
-    }
+       type: ADD_USER_QUESTION,
+       authedUser ,
+       qid ,
+      
+   }
+   
 }

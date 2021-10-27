@@ -8,13 +8,13 @@ class SignIn extends Component {
 
     handleChange = (e)=>{
         const userId = e.target.value
-        // console.log(this.state)
+       
         this.setState(()=>({userId}))
     }
 
     handleSignin(){
         const {userId} = this.state
-        // console.log(this.state)
+        
         this.props.dispatch(setAuthedUser(userId))
     }
     render() {
@@ -33,8 +33,7 @@ class SignIn extends Component {
                     
 
                     <div>
-                        {/* <h2>Sign in </h2> */}
-                        {/* <h3>...a...</h3> */}
+                       
                         <div>
 
                             <select onChange={this.handleChange} defaultValue='Select User' className='users-list'>

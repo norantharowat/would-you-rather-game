@@ -5,7 +5,7 @@ class Results extends Component {
         const {question, author , myAnswer ,total} = this.props
         const optionOnePercentage = (question.optionOne.votes.length / total)*100
         const optionTwoPercentage = (question.optionTwo.votes.length / total)*100
-        console.log(total)
+       
          return (
              <div style={{marginTop: 60}} className = 'question-card'>
                  <div className = 'name'>
