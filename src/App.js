@@ -5,7 +5,8 @@ import Home from './components/Home';
 import SignIn from './components/SignIn';
 import LeaderBoard from './components/LeaderBoard';
 import NewQuestion from './components/NewQuestion';
-import {BrowserRouter as Router , Route ,Redirect} from 'react-router-dom'
+import { Route } from 'react-router-dom'
+// import {BrowserRouter as Router , Route ,Redirect, withRouter} from 'react-router-dom'
 import { handleReceiveUsers } from './actions/users';
 import { handleReceiveQuestions } from './actions/questions';
 import ViewPoll from './components/ViewPoll'
@@ -15,23 +16,23 @@ class App extends Component {
     this.props.dispatch(handleReceiveUsers()) 
     this.props.dispatch(handleReceiveQuestions()) 
 
+   
     
   }
   
   render(){
-    // if(!this.props.authed){
-    //   this.props.history.push(`/signin`)
-    // }
+   
+    console.log(this.props.authed )
     return (
-      <Router>
-
+     
       <div className="App">
+
+<div className="App">
        
       
         {this.props.authed ? 
         <div>
         <NavBar/>
-        <Redirect to='/'/>
         <Route path='/' exact component ={Home} />
         <Route path='/leaderboard'  component ={LeaderBoard} />
         <Route path = '/question/:id'  component = {ViewPoll}/>
@@ -40,14 +41,52 @@ class App extends Component {
         </div>
         : 
         <div>
-        <Route path='/signin'  component ={SignIn} />
-        <Redirect to='/signin'/>
+         <SignIn/> 
         </div>
-        //  <SignIn/> 
       }
         
       </div>
-    </Router>
+
+       
+       
+       
+        
+        {/* <Route path='/' exact render={()=>(
+          this.props.authed
+          ? <Home/>
+         : <Redirect to='/signin' />
+        )} />
+
+       
+       
+        <Route path='/' exact render={()=>(
+          this.props.authed
+          ? <Home/>
+         : <Redirect to='/signin' />
+        )} />
+
+       
+        <Route path='/leaderboard'  render={()=>(
+          this.props.authed
+          ? <LeaderBoard/>
+         : <Redirect to='/signin' />
+        )} />
+
+        <Route path = '/question/:id'  render={(props)=>(
+          this.props.authed
+          ? <ViewPoll id= {props.match.params.id}/>
+         : <Redirect to='/signin' />
+        )}/>
+        <Route path='/add'  render={()=>(
+          this.props.authed
+          ? <NewQuestion/>
+         : <Redirect to='/signin' />
+        )} />  */}
+      
+       
+        
+      </div>
+    
   );
 }
 }
@@ -58,4 +97,4 @@ function mapStateToProps({ authedUser }){
   }
 }
 
-export default  connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App);

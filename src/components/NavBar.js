@@ -29,9 +29,10 @@ class NavBar extends Component {
 
                 </nav>
 
-                {/* <h2> Name </h2>
-                <h2> Avatar </h2>
-                <button> Logout </button> */}
+                
+
+
+
             </div>
         )
     }
