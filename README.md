@@ -17,4 +17,4 @@ The "Would you rather game" is the final project for the react/redux nanodegree 
 
 ## Project Demo
 
-![Alt Text](https://github.com/norantharowat/would-you-rather-game/blob/main/public/would_you_rather.gif)
+![Alt Text](https://github.com/norantharowat/would-you-rather-game/blob/main/public/would_you_rather1.gif)
